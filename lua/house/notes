@@ -1,0 +1,47 @@
+house.recite = function()
+
+    local returnvalue = house.verse(1)
+    
+    -- buffer to avoid allocating, re-allocating and re-re-allocating...
+    -- extra memory for ever bigger strings
+    local stringbuffer = {}
+
+    for i = 1, #sentences, 1 do
+        stringbuffer[#stringbuffer + 1] = house.verse(i)
+    end
+
+    return table.concat(stringbuffer, '\n')
+end
+
+local function union ( a, b )
+    local result = {}
+    for k,v in pairs ( a ) do
+        table.insert( result, v )
+    end
+    for k,v in pairs ( b ) do
+         table.insert( result, v )
+    end
+    return result
+end
+
+house.titanifysentences = function() 
+    for i = 1, 5, 1 do
+        sentences = union(sentences, sentences)    
+    end
+end
+
+house.testperformance = function()
+    
+    start_time = os.time()
+    house.recite()
+    end_time = os.time()
+    elapsed_time = os.difftime(end_time,start_time)
+    print('Elapsed time with recite(): ' .. elapsed_time)
+
+    start_time = os.time()
+    house.reciteWithDoubleDotOperator()
+    end_time = os.time()
+    elapsed_time = os.difftime(end_time,start_time)
+    print('Elapsed time with reciteWithDoubleDotOperator(): ' .. elapsed_time)
+
+end
