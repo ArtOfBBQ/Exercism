@@ -29,5 +29,15 @@
 # Executables
 *.exe
 *.out
-*.app
-cpp/reverse-string/CMakeFiles/reverse-string.dir/CXX.includecache
+*.ap
+
+# Exercism compilation setup
+*MakeFile*
+*MakeList*
+*cmake*
+
+# Exercism test suites
+*Test
+
+# Various clutter
+*metadata.json
