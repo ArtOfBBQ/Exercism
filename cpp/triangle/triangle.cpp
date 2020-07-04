@@ -18,17 +18,12 @@ namespace triangle {
 
         }
 
-        if (side1 == side2) {
-            if (side1 == side3) {
-                return flavor::equilateral;
-            } else 
-            {
-                return flavor::isosceles;
-            }
-        } else {
-            if (side1 == side3 || side2 == side3) {
-                return flavor::isosceles;
-            }
+        if (side1 == side2 && side2 == side3) {
+            return flavor::equilateral;
+        }
+
+        if (side1 == side2 || side1 == side3 || side2 == side3) {
+            return flavor::isosceles;
         }
 
         return flavor::scalene;
