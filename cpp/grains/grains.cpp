@@ -4,25 +4,17 @@
 
 namespace grains {
 
-    unsigned long square(unsigned short square) {
+    unsigned long long square(int square) {
+    
+        return exp2(square - 1);
 
-        if (square == 1) { return 1; }
+    }
 
-        return pow(2, square - 1);
-    };
+    unsigned long long total() {
 
-    unsigned long total() {
+        unsigned long long final_square = square(64);
 
-        unsigned long return_value = 0;
-
-        for (int cur_square = 1; cur_square <= 64; cur_square++) {
-
-            return_value += square(cur_square);
-
-        }
-
-        return return_value;
-
+        return final_square + final_square - 1;
     };
 
 }

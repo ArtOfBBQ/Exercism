@@ -3,9 +3,9 @@
 
 namespace grains {
 
-    unsigned long square(unsigned short square);
+    unsigned long long square(int square); 
 
-    unsigned long total();
+    unsigned long long total();
 
 }
 
