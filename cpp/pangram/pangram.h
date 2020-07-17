@@ -5,7 +5,7 @@
 
 namespace pangram {
 
-    bool is_pangram(std::string input);
+    bool is_pangram(const std::string& input);
 
 }
 
